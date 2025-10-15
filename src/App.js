@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import TeamArea from './pages/TeamArea';
 import AdminPanel from './pages/AdminPanel';
+import AdminCheck from './components/AdminCheck';
 import './App.css';
 
 function App() {

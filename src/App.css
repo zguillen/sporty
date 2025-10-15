@@ -243,6 +243,443 @@ body {
     font-size: 1.2rem;
 }
 
+/* Admin Panel */
+.admin-panel {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section h2 {
+    color: #ff6b35;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #ff6b35;
+    padding-bottom: 0.5rem;
+}
+
+.message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid #c3e6cb;
+}
+
+/* Team Form */
+.team-form {
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.create-btn {
+    background: #ff6b35;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.create-btn:hover {
+    background: #e55a2b;
+}
+
+/* Teams Grid */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.team-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #f9f9f9;
+}
+
+.team-card h3 {
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+}
+
+.team-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Users Table */
+.users-table {
+    overflow-x: auto;
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.users-table th,
+.users-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+.role-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.role-badge.admin {
+    background: #dc3545;
+    color: white;
+}
+
+.role-badge.manager {
+    background: #fd7e14;
+    color: white;
+}
+
+.role-badge.member {
+    background: #6c757d;
+    color: white;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.promote-btn,
+.demote-btn {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.promote-btn {
+    background: #28a745;
+    color: white;
+}
+
+.promote-btn.manager {
+    background: #fd7e14;
+}
+
+.promote-btn:hover {
+    background: #218838;
+}
+
+.promote-btn.manager:hover {
+    background: #e96b00;
+}
+
+.demote-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.demote-btn:hover {
+    background: #5a6268;
+}
+
+.current-user {
+    font-style: italic;
+    color: #666;
+}
+
+/* Dashboard */
+.dashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard h1 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.dashboard-actions {
+    margin-top: 2rem;
+}
+
+.admin-link {
+    display: inline-block;
+    background: #dc3545;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    transition: background 0.3s;
+}
+
+.admin-link:hover {
+    background: #c82333;
+}
+
+.dashboard-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.dashboard-section h3 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+/* Team Link Cards */
+.team-link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.team-link-card:hover {
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.team-card-content h4 {
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.team-card-content p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.access-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.access-badge.member {
+    background: #6c757d;
+    color: white;
+}
+
+.access-badge.manager {
+    background: #fd7e14;
+    color: white;
+}
+
+/* Team Management Cards */
+.team-management-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: #f9f9f9;
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.team-header h3 {
+    color: #ff6b35;
+    margin: 0;
+}
+
+.team-info {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.team-description {
+    margin-bottom: 1rem;
+    color: #555;
+    font-style: italic;
+}
+
+.team-members h4 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.members-list {
+    background: white;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.member-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.member-item:last-child {
+    border-bottom: none;
+}
+
+.member-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.manager-badge {
+    background: #fd7e14;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.member-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.make-manager-btn,
+.remove-btn,
+.add-user-btn {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.make-manager-btn {
+    background: #fd7e14;
+    color: white;
+}
+
+.make-manager-btn:hover {
+    background: #e96b00;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+.add-user-btn {
+    background: #28a745;
+    color: white;
+}
+
+.add-user-btn:hover {
+    background: #218838;
+}
+
+.add-member-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.add-member-section h5 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.available-users {
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.available-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .navbar {

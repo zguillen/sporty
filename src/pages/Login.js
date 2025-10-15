@@ -18,11 +18,14 @@ const Login = () => {
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
+            console.log('Google sign-in successful:', user); // Debug log
+
             // Check if user document exists, if not create it
             const userDocRef = doc(db, 'users', user.uid);
             const userDoc = await getDoc(userDocRef);
 
             if (!userDoc.exists()) {
+                console.log('Creating new user document'); // Debug log
                 await setDoc(userDocRef, {
                     name: user.displayName,
                     email: user.email,
@@ -30,10 +33,14 @@ const Login = () => {
                     teams: [],
                     createdAt: new Date()
                 });
+                console.log('User document created successfully'); // Debug log
+            } else {
+                console.log('User document already exists'); // Debug log
             }
 
             navigate('/dashboard');
         } catch (error) {
+            console.error('Login error:', error); // Debug log
             setError(error.message);
         } finally {
             setLoading(false);

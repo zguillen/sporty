@@ -86,9 +86,19 @@ In Firebase Console Build → Firestore Database → Rules tab, update with:
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
     // Users can read/write their own user document
+    // Admins can read all user documents
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && 
+        (request.auth.uid == userId || isAdmin());
+      allow write: if request.auth != null && 
+        (request.auth.uid == userId || isAdmin());
     }
     
     // Public posts are readable by everyone
@@ -104,10 +114,12 @@ service cloud.firestore {
     }
     
     // Teams are readable by authenticated users
+    // Admins can write to all teams
     match /teams/{teamId} {
       allow read: if request.auth != null;
       allow write: if request.auth != null && 
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'manager'];
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'manager'] ||
+         request.auth.uid in resource.data.managers);
     }
     
     // Public events are readable by everyone
@@ -128,6 +140,31 @@ npm start
 The app will open at `http://localhost:3000`
 
 **Note**: Google Sign-In requires HTTPS in production but works on localhost for development.
+
+### 6. Create First Admin User
+
+After setting up Firebase and running the app locally:
+
+1. **Sign in with Google** through your app
+2. **Go to Firebase Console** → Firestore Database → Data tab
+3. **Find your user document** in the `users` collection
+4. **Edit the document** and change the `role` field from `"member"` to `"admin"`
+5. **Save the changes**
+
+**Alternative method using Firebase Console:**
+```javascript
+// In Firestore, manually create an admin user document:
+users/{your-user-uid}/
+{
+  name: "Your Name",
+  email: "your-email@gmail.com", 
+  role: "admin",  // Change this to "admin"
+  teams: [],
+  createdAt: new Date()
+}
+```
+
+**Future admins can be promoted by existing admins through the Admin Panel.**
 
 ## Deployment
 
@@ -185,8 +222,9 @@ users/
   {userId}/
     name: string
     email: string
-    role: 'admin' | 'manager' | 'member'
+    role: 'admin' | 'manager' | 'member'  // admin can create teams
     teams: [teamId]
+    createdAt: timestamp
 
 teams/
   {teamId}/
@@ -194,6 +232,8 @@ teams/
     ageRange: string
     members: [userId]
     managers: [userId]
+    createdBy: userId  // admin who created the team
+    createdAt: timestamp
 
 posts/
   {postId}/
@@ -271,8 +311,9 @@ Then update `firebase.js` to use `process.env.REACT_APP_*`
 
 ## Notes if we keep:
 1. change the support email listed in firebase when I enabled google authentication:
-![alt text](image.png)nsed under the MIT License.
+![alt text](image.png)
 2. **Firebase Storage**: Currently skipped to avoid billing charges. Images can be hosted externally and URLs stored in Firestore.
+3. **First Admin Setup**: Manually change the first user's role to "admin" in Firestore Console after they sign up.
 
 ## Contributing
 
