@@ -33,7 +33,7 @@ firebase-debug.log
 firestore-debug.log
 
 # Package manager
-package-lock.json
+# package-lock.json
 yarn.lock
 
 # Temporary files
