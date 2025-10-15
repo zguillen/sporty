@@ -143,7 +143,11 @@ The app will open at `http://localhost:3000`
 3. **Enable GitHub Pages**:
    - Go to repository Settings → Pages
    - Source: Deploy from a branch
-   - Branch: `gh-pages`
+   - Branch: Select `main` (the `gh-pages` branch will be created automatically when you deploy)
+   - Folder: Select `/ (root)` from the second dropdown that appears
+   - Click Save
+
+**Note**: The `gh-pages` branch will be created automatically when you first run `npm run deploy` or when GitHub Actions runs.
 
 ### Deploy Changes
 
@@ -245,23 +249,23 @@ Then update `firebase.js` to use `process.env.REACT_APP_*`
 - Verify config in `firebase.js`
 - Check Firebase console for enabled services
 - Ensure Firestore rules allow your operations
-- **Storage not required**: Use external image hosting for now to avoid billing### Deployment Issues
-ctions tab for build logs
-### Google Sign-In Issueskage.json`
-- Verify Google provider is enabled in Firebase Authentication
-- Check that your domain is in authorized domains list
-- Ensure you're using HTTPS in production (GitHub Pages provides this)## Available Scripts
-- Clear browser cache if authentication popup doesn't appear
-server
+- **Storage not required**: Use external image hosting for now to avoid billing
+
 ### Deployment Issues
 - Check GitHub Actions tab for build logs
-- Verify homepage URL in `package.json`- `npm test` - Run test suite
+- Verify homepage URL in `package.json`
 - Ensure `gh-pages` branch exists
+- **Package lock sync error**: Delete `package-lock.json` locally, run `npm install`, then commit and push
+
+### Google Sign-In Issues
+- Verify Google provider is enabled in Firebase Authentication
+- Check that your domain is in authorized domains list
+- Ensure you're using HTTPS in production (GitHub Pages provides this)
 
 ## Available Scripts
 
 - `npm start` - Run development server
-- `npm run build` - Create production build3. Commit your changes
+- `npm run build` - Create production build
 - `npm run deploy` - Deploy to GitHub Pages
 - `npm test` - Run test suite
 
