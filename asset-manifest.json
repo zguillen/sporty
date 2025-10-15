@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sporty/static/css/main.26f263ac.css",
+    "main.js": "/sporty/static/js/main.a6f046a9.js",
+    "index.html": "/sporty/index.html",
+    "main.26f263ac.css.map": "/sporty/static/css/main.26f263ac.css.map",
+    "main.a6f046a9.js.map": "/sporty/static/js/main.a6f046a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26f263ac.css",
+    "static/js/main.a6f046a9.js"
+  ]
+}
